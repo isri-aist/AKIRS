@@ -1,0 +1,20 @@
+
+# Basics
+cmake_minimum_required(VERSION 3.12)
+
+project(AKIRS VERSION 0.1.0 DESCRIPTION "Azure Kinect Infra Red Streamer")
+string(REGEX MATCHALL "[0-9]" PROJECT_VERSION_PARTS "${PROJECT_VERSION}")
+
+list(GET PROJECT_VERSION_PARTS 0 PROJECT_VERSION_MAJOR)
+list(GET PROJECT_VERSION_PARTS 1 PROJECT_VERSION_MINOR)
+list(GET PROJECT_VERSION_PARTS 2 PROJECT_VERSION_PATCH)
+
+set(PROJECT_SOVERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}")
+
+# Library
+find_package(OpenCV     REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+# Executable
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
