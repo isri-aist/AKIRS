@@ -4,7 +4,8 @@ OpenCV
 ROS sensor_msgs et cv_bridge
 
 ## CMakeLists.txt:
-```find_package(catkin REQUIRED COMPONENTS
+```
+find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
   cv_bridge
